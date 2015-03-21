@@ -1,0 +1,69 @@
+<!--BEGIN GALLERY ::
+:: Gallery code Copyright 2015 David Shumway All Rights Reserved. Gallery License is Creative Commons License 2.0. 
+-->
+<!--STYLE-->
+<style type="text/css">
+.hold {
+  width: 100%;
+  height: 480px;
+  margin: 10px auto;
+  padding: 12px 12px 20px; /*Bottom is longer @ 20px*/
+  border: 4px solid green;
+  background-color: #eee;
+}
+.main {
+  float: left;
+  width: 50%;
+  max-height: 100%;
+  border: 4px double #a2a2a2;
+  overflow: hidden;
+  background-color: white;
+}
+.main img {
+  margin: auto 0;
+  max-width: 100%;
+  max-height: 100%;
+}
+.right {
+  float: right;
+  width: 44%;
+  height: 100%;
+  border: 4px double #a2a2a2;
+  overflow:auto;
+  margin-left: 5px;
+  background-color: white;
+}
+.right img {
+  width: 28%;
+  max-height: 80px;
+  border: 1px solid black;
+  margin: 6px 2%;
+  cursor: pointer;
+}
+#loader img {
+ width:0;
+ height:0;
+}
+</style>
+<!--END STYLE-->
+<!--BEGIN GALLERY CONTAINER-->
+<div class="hold">
+<div class="main">
+<a href="#"><img id="main" src="http://199.180.249.224/FLBS/content/eb/images/P3190046.JPG.png"></a>
+</div>
+<div class="right" id="right">
+</div>
+<br style="clear:both;">
+<!--END GALLERY CONTAINER-->
+<!--BEGIN LOADER ::
+:: Plus caches images after clicks.
+:: Opens in new window main image.onclick. (This does not work yet.)
+:: 
+-->
+<div id="loader">
+<img style="width:0;height:0;" src="http://199.180.249.224/FLBS/content/eb/images/P3190046.JPG.thm.png" onload="javascript:
+(function(){ function append(img) {o.im_count++; if (o.im_count % 3==0) {o.im_count=0;}; o.right.appendChild( img );}; function a() {var a=document.createElement('a'); a.onclick = evclick; return a;};function img(name){ var l=document.createElement('img'); l.orig=name; l.src=o.home+name+o.ext; l.onclick=evclick; l.onmouseover=evmouseover; l.onmouseout=evmouseout; return l; }; function evclick(e){o.main.src=o.home+this.orig+o.ext_big; preload(this.orig); e.stopPropagation(); e.preventDefault(); return false;}; function evmouseover(){}; function evmouseout(){}; function preload(name) { if (o.loader_idx.hasOwnProperty(name)) return; o.loader_idx[name]=true; o.loader.appendChild( img_pl(name) ); }; function img_pl(name){ var l=document.createElement('img'); l.src=o.home+name+o.ext_big; return l; }; var o={main:document.getElementById('main'), right:document.getElementById('right'), home:'http://199.180.249.224/FLBS/content/eb/images/', ext:'.JPG.thm.png', ext_big: '.JPG.png', im_count:0, img:['P3190046','P3190045','P3190044','P3190043','P3190042','P3190041','P3190040','P3190039','P3190038','P3190037','P3190036','P3190035','P3190034','P3190033','P3190032','P3190031','P3190030','P3190029','P3190028','P3190027','P3190026','P3190025','P3190023','P3190022','P3190021','P3190020','P3190019'], loader: document.getElementById('loader'), loader_idx: {}}; for (var i in o.img) { var im = img(o.img[i]);  append(im);}; function init_main_img(){ }; init_main_img(); return;})()">
+</div>
+<!--END LOADER-->
+</div>
+<!--END GALLERY-->
